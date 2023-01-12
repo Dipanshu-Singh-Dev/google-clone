@@ -1,0 +1,12 @@
+.comp{
+    text-decoration: none;
+    color: rgba(0, 0, 0, .87);
+    height: 100%;
+    vertical-align: middle;
+    padding: 10px;
+    
+}
+.comp:hover{
+        color: rgba(0, 0, 0, 0.767);
+    text-decoration: underline;
+}
