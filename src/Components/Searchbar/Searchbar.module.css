@@ -1,0 +1,29 @@
+.container{
+
+    height: 35px;
+    max-width: 40%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 50px;
+    border:1px solid lightgray;
+    gap: 10px;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+}
+.search{
+    color: gray;
+}
+.input{
+    border: none;
+    height: 100%;
+    flex-grow: 1;
+}
+.input:focus {
+    outline: none;
+}
+@media screen and (max-width: 600px) {
+    .container {
+            max-width: 85%;
+    }
+}
