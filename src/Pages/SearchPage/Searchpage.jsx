@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 const Searchpage = () => {
-  return <div>Searchpage</div>;
+  const { search } = useParams();
+  return search ? <div>{search}</div> : null;
 };
 
 export default Searchpage;
