@@ -7,8 +7,8 @@ const NavbarHome = () => {
     <div className={styles.NavContainer}>
       <div className={styles.NavItems}>
         <div className={styles.ExternalLinks}>
-          <ExternalLink title="Gmail" />
-          <ExternalLink title="Images" />
+          <ExternalLink title="Gmail" type="head" />
+          <ExternalLink title="Images" type="head" />
         </div>
         <div className={styles.Icons}>
           <Icon name="apps" />

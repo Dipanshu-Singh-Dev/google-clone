@@ -1,17 +1,24 @@
 .btn {
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 4px;
-    font-family: Arial;
+border-radius: 4px;
     color: #3c4043;
+    font-family: arial, sans-serif;
     font-size: 14px;
-    background: #f8f9fa;
-    padding: 10px 20px 10px 20px;
-    border: solid #f8f9fa 1px;
-    text-decoration: none;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    margin-bottom: 10px;
 }
 
 .btn:hover {
-    background: #ebeef0;
-    text-decoration: none;
+        box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #202124;
 }
