@@ -22,4 +22,5 @@ color: #70757a;
 
 .foot:hover {
     text-decoration: underline;
+    transition: all .25s;
 }

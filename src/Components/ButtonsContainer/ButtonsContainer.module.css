@@ -21,4 +21,5 @@ border-radius: 4px;
             background-color: #f8f9fa;
             border: 1px solid #dadce0;
             color: #202124;
+            transition: all .25s;
 }
