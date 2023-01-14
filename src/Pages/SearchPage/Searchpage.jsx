@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useGoogleSearch from "../../Hook/useGoogleSearch";
-
+import NavbarSearch from "../../Components/NavbarSearch/NavbarSearch";
 const Searchpage = () => {
   const { search } = useParams();
   const data = [
@@ -473,7 +473,11 @@ const Searchpage = () => {
     },
   ];
   console.log(data);
-  return search ? <div>{search}</div> : null;
+  return search ? (
+    <div>
+      <NavbarSearch />
+    </div>
+  ) : null;
 };
 
 export default Searchpage;
