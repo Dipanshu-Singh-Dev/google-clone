@@ -1,0 +1,14 @@
+div{
+    text-align: left;
+    font-size: 16px;
+}
+.link{
+    font-size: 14px;
+    color: gray;
+}
+.snippet {
+    font-size: 16px;
+}
+.anchor{
+    font-size: larger;
+}

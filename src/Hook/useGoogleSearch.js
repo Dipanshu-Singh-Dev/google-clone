@@ -13,7 +13,7 @@ const useGoogleSearch = (term) => {
     };
     fetchData();
   }, [term]);
-  return data ? data.items : null;
+  return data ? data : null;
 };
 
 export default useGoogleSearch;
