@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useGoogleSearch from "../../Hook/useGoogleSearch";
+
 const Searchpage = () => {
   const { search } = useParams();
-
   const data = [
     {
       kind: "customsearch#result",
