@@ -6,7 +6,8 @@ import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Searchbar = () => {
+const Searchbar = ({ val }) => {
+  console.log(val);
   let navigate = useNavigate();
   const [state, setstate] = React.useState("/");
   return (
@@ -18,6 +19,7 @@ const Searchbar = () => {
         type="text"
         onChange={(e) => (e.target.value ? setstate(e.target.value) : null)}
         className={style.input}
+        value={val}
       />
       <div>
         <IconButton>

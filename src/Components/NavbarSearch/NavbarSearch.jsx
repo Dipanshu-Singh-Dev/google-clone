@@ -10,7 +10,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AppsIcon from "@mui/icons-material/Apps";
-const NavbarSearch = () => {
+const NavbarSearch = ({ search }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -20,7 +20,7 @@ const NavbarSearch = () => {
             alt="logo"
             src={process.env.PUBLIC_URL + "/images/logo.png"}
           />
-          <SearchBar />
+          <SearchBar val={search} />
         </div>
         <div className={styles.topright}>
           <IconButton>

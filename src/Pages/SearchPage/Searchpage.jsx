@@ -524,7 +524,7 @@ const Searchpage = () => {
   console.log(data);
   return search ? (
     <div>
-      <NavbarSearch />
+      <NavbarSearch val={search} />
       <div
         style={{
           width: "50%",
