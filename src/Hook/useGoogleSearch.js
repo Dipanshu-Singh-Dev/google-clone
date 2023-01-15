@@ -9,7 +9,11 @@ const useGoogleSearch = (term) => {
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${id}&q=${term}`
       )
         .then((res) => res.json())
-        .then((data) => setData(data));
+        .then((data) => setData(data))
+        .catch((e) => {
+          console.log(e);
+          setData(null);
+        });
     };
     fetchData();
   }, [term]);

@@ -14,7 +14,8 @@ const Searchpage = () => {
   if (!data) data = localStorage.getItem("search");
   console.log(data);
   let results = useGoogleSearch(data);
-  return results ? (
+
+  return results && Object.keys(results)[0] !== "error" ? (
     <div>
       {data && <NavbarSearch val={data} />}
       <div
@@ -28,8 +29,12 @@ const Searchpage = () => {
         }}
       >
         <ResultsNumber
-          totalResults={results.searchInformation.formattedTotalResults}
-          searchTime={results.searchInformation.formattedSearchTime}
+          totalResults={
+            results ? results.searchInformation.formattedTotalResults : null
+          }
+          searchTime={
+            results ? results.searchInformation.formattedSearchTime : null
+          }
         />
       </div>
       <div
