@@ -54,7 +54,9 @@ const Searchpage = () => {
       </div>
       <SearchFooter />
     </div>
-  ) : null;
+  ) : (
+    <p>Something went wrong</p>
+  );
 };
 
 export default Searchpage;
