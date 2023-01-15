@@ -5,26 +5,32 @@ import MicIcon from "@mui/icons-material/Mic";
 import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Searchbar = (props) => {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
   const [state, setstate] = React.useState("/");
   return (
     <div className={style.container}>
       <input
         type="text"
-        onChange={(e) => (e.target.value ? setstate(e.target.value) : null)}
+        onChange={(e) =>
+          e.target.value
+            ? dispatch({ type: "query", payload: e.target.value })
+            : null
+        }
         className={style.input}
       />
-      <div>
-        <IconButton onClick={(e) => navigate(`/${state}`)}>
+      <div className={style.IconButtons}>
+        <IconButton onClick={(e) => navigate(`/search`)}>
           <SearchIcon fontSize="small" className={style.search} />
         </IconButton>
         <IconButton>
-          <MicIcon />
+          <MicIcon fontSize="small" />
         </IconButton>
         <IconButton>
-          <ImageSearchIcon />
+          <ImageSearchIcon fontSize="small" />
         </IconButton>
       </div>
     </div>

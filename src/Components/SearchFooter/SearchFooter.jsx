@@ -8,7 +8,6 @@ const SearchFooter = () => {
 
   navigator.geolocation.getCurrentPosition(showPosition, setlatLong);
 
-  console.log(latLong);
   return (
     <div className={styles.container}>
       <div className={styles.top}>{latLong}</div>
