@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams } from "react-router-dom";
 import useGoogleSearch from "../../Hook/useGoogleSearch";
@@ -6,6 +7,7 @@ import ResultsNumber from "../../Components/ResultsNumber/ResultsNumber";
 import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 const Searchpage = () => {
   const { search } = useParams();
+
   const data = {
     kind: "customsearch#search",
     url: {
@@ -521,10 +523,9 @@ const Searchpage = () => {
       },
     ],
   };
-  console.log(data);
   return search ? (
     <div>
-      <NavbarSearch val={search} />
+      <NavbarSearch val={search ? search : null} />
       <div
         style={{
           width: "50%",
