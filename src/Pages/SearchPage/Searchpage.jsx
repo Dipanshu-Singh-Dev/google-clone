@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+import SearchFooter from "../../Components/SearchFooter/SearchFooter"; /* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams } from "react-router-dom";
 import useGoogleSearch from "../../Hook/useGoogleSearch";
@@ -560,6 +560,7 @@ const Searchpage = () => {
           />
         ))}
       </div>
+      <SearchFooter />
     </div>
   ) : null;
 };
