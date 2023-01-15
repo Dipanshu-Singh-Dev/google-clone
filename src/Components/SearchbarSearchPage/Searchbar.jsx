@@ -15,15 +15,16 @@ const Searchbar = (props) => {
     <div className={style.container}>
       <input
         type="text"
-        onChange={(e) =>
-          e.target.value
-            ? dispatch({ type: "query", payload: e.target.value })
-            : null
-        }
+        onChange={(e) => setstate(e.target.value)}
         className={style.input}
       />
       <div className={style.IconButtons}>
-        <IconButton onClick={(e) => navigate(`/search`)}>
+        <IconButton
+          onClick={(e) => {
+            dispatch({ type: "query", payload: state });
+            navigate(`/search`);
+          }}
+        >
           <SearchIcon fontSize="small" className={style.search} />
         </IconButton>
         <IconButton>
