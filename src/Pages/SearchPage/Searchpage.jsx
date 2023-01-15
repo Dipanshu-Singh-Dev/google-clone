@@ -39,6 +39,7 @@ const Searchpage = () => {
           gap: "10px",
           width: "50%",
           marginLeft: "12.5%",
+          paddingBottom: "25px",
           textAlign: "left",
         }}
       >
