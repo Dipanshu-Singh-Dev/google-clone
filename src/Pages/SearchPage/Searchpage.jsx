@@ -8,14 +8,22 @@ import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 import { useSelector } from "react-redux";
 const Searchpage = () => {
   console.log("searchpage called");
-
+  let [loading, setLoading] = React.useState(true);
+  let [Error, setError] = React.useState(false);
   let data = useSelector((data) => data[0]);
   data && localStorage.setItem("search", data);
   if (!data) data = localStorage.getItem("search");
-  console.log(data);
-  let results = useGoogleSearch(data);
 
-  return results && Object.keys(results)[0] !== "error" ? (
+  let results = useGoogleSearch(data);
+  React.useEffect(() => {
+    if (results) setLoading(false);
+    if (results && Object.keys(results)[0] === "error") setError(true);
+  }, [results]);
+  return loading ? (
+    <p>Loading</p>
+  ) : Error ? (
+    <p>Something went wrong</p>
+  ) : (
     <div>
       {data && <NavbarSearch val={data} />}
       <div
@@ -59,8 +67,6 @@ const Searchpage = () => {
       </div>
       <SearchFooter />
     </div>
-  ) : (
-    <p>Something went wrong</p>
   );
 };
 
