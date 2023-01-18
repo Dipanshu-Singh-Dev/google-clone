@@ -13,7 +13,7 @@ const Searchbar = () => {
   const [state, setstate] = React.useState("/");
   return (
     <div className={style.container}>
-      <IconButton onClick={(e) => navigate(`/search`)}>
+      <IconButton onClick={() => navigate(`/search`)}>
         <SearchIcon fontSize="small" className={style.search} />
       </IconButton>
       <input
