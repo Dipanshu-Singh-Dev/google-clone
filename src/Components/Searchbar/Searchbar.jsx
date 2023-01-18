@@ -18,11 +18,12 @@ const Searchbar = () => {
       </IconButton>
       <input
         type="text"
-        onChange={(e) =>
-          e.target.value
+        onChange={(e) => {
+          return e.target.value
             ? dispatch({ type: "query", payload: e.target.value })
-            : null
-        }
+            : null;
+        }}
+        onKeyDown={(e) => (e.code === "Enter" ? navigate("/search") : null)}
         className={style.input}
       />
       <div>
