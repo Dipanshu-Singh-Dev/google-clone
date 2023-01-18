@@ -11,7 +11,18 @@ function App() {
         <Routes>
           <Route>
             <Route index element={<Homepage />} />
-            <Route path="search" element={<SearchPage />} />
+            <Route path="search">
+              <Route index element={<SearchPage />} />
+              {/* <Route path="vids" element={<VidSearch />} />
+              <Route path="images" element={<ImgSearch />} />
+              <Route path="news" element={<NewsSearch />} />
+              <Route path="shopping" element={<ShopSearch />} />
+              <Route path="books" element={<BookSearch />} />
+              <Route path="maps" element={<MapSearch />} />
+              <Route path="maps" element={<MapSearch />} />
+              <Route path="maps" element={<MapSearch />} />
+              <Route path="maps" element={<MapSearch />} /> */}
+            </Route>
           </Route>
         </Routes>
       </Provider>
