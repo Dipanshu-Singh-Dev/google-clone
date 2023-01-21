@@ -6,13 +6,12 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SearchIcon from "@mui/icons-material/Search";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-
 import ImageIcon from "@mui/icons-material/InsertPhotoOutlined";
-
 import LocalOfferIcon from "@mui/icons-material/LocalOfferOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AppsIcon from "@mui/icons-material/Apps";
 import { useDispatch, useSelector } from "react-redux";
+
 const NavbarSearch = ({ search }) => {
   const active = useSelector((data) => data.type);
   const dispatch = useDispatch();
@@ -28,8 +27,12 @@ const NavbarSearch = ({ search }) => {
           <SearchBar val={search} />
         </div>
         <div className={styles.topright}>
-          <SettingsIcon fontSize="medium" />
-          <AppsIcon fontSize="medium" />
+          <IconButton>
+            <SettingsIcon />
+          </IconButton>
+          <IconButton>
+            <AppsIcon />
+          </IconButton>
         </div>
       </div>
       <div className={styles.bottom}>
