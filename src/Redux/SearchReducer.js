@@ -1,5 +1,7 @@
-export default function reducer(state = [], action) {
-  if (action.payload !== "" || state !== action.payload)
-    state[0] = action.payload;
+const initState = "hello";
+export default function reducer(state = initState, action) {
+  //console.log(state);
+  if (action.payload !== "" && state !== action.payload && action.payload)
+    return action.payload;
   return state;
 }

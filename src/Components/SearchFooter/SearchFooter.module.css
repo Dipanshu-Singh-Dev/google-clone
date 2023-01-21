@@ -1,9 +1,10 @@
 .container{
-    margin-top: 25px;
+    margin-top: auto;
         color: #70757a;
     padding: 5px 0;
     background-color: #f5f1f1;
     font-size: 14px;
+    
 }
 .top{
     padding: 10px 10%;

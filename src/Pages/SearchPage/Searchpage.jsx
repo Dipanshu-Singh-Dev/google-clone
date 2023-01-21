@@ -9,43 +9,21 @@ import { useSelector } from "react-redux";
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
-  let data = useSelector((data) => data[0]);
-  data && localStorage.setItem("search", data);
+  let data = useSelector((data) => {
+    console.log(data);
+  });
+  data && localStorage.setItem("search", data.search.search);
   if (!data) data = localStorage.getItem("search");
 
   let results = useGoogleSearch(data);
   React.useEffect(() => {
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
-    console.log(results);
   }, [results]);
-  results && console.log(results);
-  return loading ? (
-    <p>Loading</p>
-  ) : Error ? (
-    <p>Something went wrong</p>
-  ) : (
-    <div>
-      {data && <NavbarSearch val={data} />}
-      <div
-        style={{
-          width: "50%",
-          marginLeft: "12.5%",
-          textAlign: "left",
-          padding: "2px 5px",
-          fontSize: "14px",
-          color: "gray",
-        }}
-      >
-        <ResultsNumber
-          totalResults={
-            results ? results.searchInformation.formattedTotalResults : null
-          }
-          searchTime={
-            results ? results.searchInformation.formattedSearchTime : null
-          }
-        />
-      </div>
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <NavbarSearch val={data} />
       <div
         style={{
           display: "flex",
@@ -57,14 +35,29 @@ const Searchpage = () => {
           textAlign: "left",
         }}
       >
-        {results?.items.map((elem) => (
-          <ResultContainer
-            link={elem.link}
-            displayLink={elem.displayLink}
-            title={elem.title}
-            snippet={elem.snippet}
-          />
-        ))}
+        {loading ? (
+          <p>Loading</p>
+        ) : Error ? (
+          <p>Something went wrong</p>
+        ) : (
+          <div>
+            <ResultsNumber
+              totalResults={results?.searchInformation.formattedTotalResults}
+              searchTime={results?.searchInformation.formattedSearchTime}
+            />
+            {results.items.map((elem) => {
+              const { link, displayLink, title, snippet } = elem;
+              return (
+                <ResultContainer
+                  link={link}
+                  displayLink={displayLink}
+                  title={title}
+                  snippet={snippet}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
       <SearchFooter />
     </div>

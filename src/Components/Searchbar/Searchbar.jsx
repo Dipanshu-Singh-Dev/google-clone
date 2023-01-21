@@ -20,7 +20,7 @@ const Searchbar = () => {
         type="text"
         onChange={(e) => {
           return e.target.value
-            ? dispatch({ type: "query", payload: e.target.value })
+            ? dispatch({ type: "searchBar/query", payload: e.target.value })
             : null;
         }}
         onKeyDown={(e) => (e.code === "Enter" ? navigate("/search") : null)}

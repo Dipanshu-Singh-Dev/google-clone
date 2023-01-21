@@ -6,11 +6,16 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SearchIcon from "@mui/icons-material/Search";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-import ImageIcon from "@mui/icons-material/Image";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+
+import ImageIcon from "@mui/icons-material/InsertPhotoOutlined";
+
+import LocalOfferIcon from "@mui/icons-material/LocalOfferOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AppsIcon from "@mui/icons-material/Apps";
+import { useDispatch, useSelector } from "react-redux";
 const NavbarSearch = ({ search }) => {
+  const active = useSelector((data) => data.type);
+  const dispatch = useDispatch();
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -23,36 +28,76 @@ const NavbarSearch = ({ search }) => {
           <SearchBar val={search} />
         </div>
         <div className={styles.topright}>
-          <IconButton>
-            <SettingsIcon fontSize="medium" />
-          </IconButton>
-          <IconButton>
-            <AppsIcon fontSize="medium" />
-          </IconButton>
+          <SettingsIcon fontSize="medium" />
+          <AppsIcon fontSize="medium" />
         </div>
       </div>
       <div className={styles.bottom}>
         <div className={styles.optionsContainer}>
-          <div className={styles.options}>
+          <div
+            className={
+              active === "text" ? styles.options__active : styles.options
+            }
+            onClick={() =>
+              dispatch({
+                type: "text",
+              })
+            }
+          >
             <SearchIcon />
             <p>All</p>
           </div>
-          <div className={styles.options}>
-            <SlideshowIcon />
+          <div
+            className={
+              active === "videos" ? styles.options__active : styles.options
+            }
+            onClick={() =>
+              dispatch({
+                type: "videos",
+              })
+            }
+          >
+            <SlideshowIcon fontSize="small" color="gray" />
             <p>Videos</p>
           </div>
-          <div className={styles.options}>
-            <NewspaperIcon />
-            <p>News</p>
+          <div
+            className={
+              active === "news" ? styles.options__active : styles.options
+            }
+            onClick={() =>
+              dispatch({
+                type: "news",
+              })
+            }
+          >
+            <NewspaperIcon fontSize="small" color="gray" /> <p>News</p>
+          </div>
+          <div
+            className={
+              active === "images" ? styles.options__active : styles.options
+            }
+            onClick={() =>
+              dispatch({
+                type: "images",
+              })
+            }
+          >
+            <ImageIcon fontSize="small" color="gray" /> <p>Images</p>
+          </div>
+          <div
+            className={
+              active === "shopping" ? styles.options__active : styles.options
+            }
+            onClick={() =>
+              dispatch({
+                type: "shopping",
+              })
+            }
+          >
+            <LocalOfferIcon fontSize="small" color="gray" /> <p>Shopping</p>
           </div>
           <div className={styles.options}>
-            <ImageIcon /> <p>Images</p>
-          </div>
-          <div className={styles.options}>
-            <LocalOfferIcon /> <p>Shopping</p>
-          </div>
-          <div className={styles.options}>
-            <MoreVertIcon /> <p>More</p>
+            <MoreVertIcon fontSize="small" color="gray" /> <p>More</p>
           </div>
         </div>
         <div>Tools</div>
