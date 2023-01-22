@@ -9,21 +9,20 @@ import { useSelector } from "react-redux";
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
-  let data = useSelector((data) => {
-    console.log(data);
+  let { search, type } = useSelector((data) => {
+    return data;
   });
-  data && localStorage.setItem("search", data.search.search);
-  if (!data) data = localStorage.getItem("search");
 
-  let results = useGoogleSearch(data);
+  let results = useGoogleSearch(search, type);
   React.useEffect(() => {
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
   }, [results]);
+  if (!search) return <p>Something went wrong</p>;
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <NavbarSearch val={data} />
+      <NavbarSearch val={search} />
       <div
         style={{
           display: "flex",

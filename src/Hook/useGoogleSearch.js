@@ -11,10 +11,10 @@ const books_engine_id = "14829b278c381109c";
 const flights_engine_id = "9e27c885704409786";
 const finance_engine_id = "71f0e89ad551a7398";
 
-const useGoogleSearch = (term) => {
-  let datum = useSelector((data) => data);
-  let type = datum?.type;
+const useGoogleSearch = () => {
   const [data, setData] = React.useState(null);
+  const { search: term, type } = useSelector((data) => data);
+  console.log(term, type);
   let engine = text_engine_id;
   if (type === "images") {
     engine = images_engine_id;
@@ -36,7 +36,10 @@ const useGoogleSearch = (term) => {
       fetch(
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${engine}&q=${term}`
       )
-        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
         .then((data) => setData(data))
         .catch((e) => {
           console.log(e);
@@ -44,7 +47,7 @@ const useGoogleSearch = (term) => {
         });
     };
     fetchData();
-  }, [term]);
+  }, [term, type]);
   return data ? data : null;
 };
 
