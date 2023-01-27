@@ -14,7 +14,7 @@ const finance_engine_id = "71f0e89ad551a7398";
 const useGoogleSearch = () => {
   const [data, setData] = React.useState(null);
   const { search: term, type } = useSelector((data) => data);
-  console.log(term, type);
+  //console.log(term, type);
   let engine = text_engine_id;
   if (type === "images") {
     engine = images_engine_id;
@@ -37,7 +37,7 @@ const useGoogleSearch = () => {
         `https://www.googleapis.com/customsearch/v1?key=${key}&cx=${engine}&q=${term}`
       )
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           return res.json();
         })
         .then((data) => setData(data))

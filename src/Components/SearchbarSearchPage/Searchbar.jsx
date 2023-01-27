@@ -10,8 +10,9 @@ import { useDispatch, getState, useSelector } from "react-redux";
 const Searchbar = (props) => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  let datum = useSelector((data) => data);
   const [state, setstate] = React.useState("/");
-
+  // console.log(datum);
   return (
     <div className={style.container}>
       <input
