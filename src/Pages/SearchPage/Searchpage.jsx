@@ -29,6 +29,7 @@ const Searchpage = () => {
         style={{
           display: "flex",
           flexDirection: "column",
+          flexGrow: "1",
           gap: "10px",
           width: "50%",
           marginLeft: "12.5%",
