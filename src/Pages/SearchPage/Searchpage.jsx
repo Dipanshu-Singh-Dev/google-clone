@@ -21,7 +21,9 @@ const Searchpage = () => {
   if (!search) return <p>Something went wrong</p>;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+    >
       <NavbarSearch val={search} />
       <div
         style={{
