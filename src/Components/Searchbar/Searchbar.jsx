@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./Searchbar.module.css";
 import SearchIcon from "@mui/icons-material/Search";
-import MicIcon from "@mui/icons-material/Mic";
-import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -13,9 +11,6 @@ const Searchbar = () => {
   const [state, setstate] = React.useState("/");
   return (
     <div className={style.container}>
-      <IconButton onClick={() => navigate(`/search`)}>
-        <SearchIcon fontSize="small" className={style.search} />
-      </IconButton>
       <input
         type="text"
         onChange={(e) => {
@@ -26,14 +21,9 @@ const Searchbar = () => {
         onKeyDown={(e) => (e.code === "Enter" ? navigate("/search") : null)}
         className={style.input}
       />
-      <div>
-        <IconButton>
-          <MicIcon />
-        </IconButton>
-        <IconButton>
-          <ImageSearchIcon />
-        </IconButton>
-      </div>
+      <IconButton onClick={() => navigate(`/search`)}>
+        <SearchIcon fontSize="small" className={style.search} />
+      </IconButton>
     </div>
   );
 };

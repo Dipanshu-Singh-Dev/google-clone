@@ -8,8 +8,6 @@ import SlideshowIcon from "@mui/icons-material/Slideshow";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import ImageIcon from "@mui/icons-material/InsertPhotoOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOfferOutlined";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import AppsIcon from "@mui/icons-material/Apps";
 import { useDispatch, useSelector } from "react-redux";
 
 const NavbarSearch = ({ search }) => {
@@ -25,14 +23,6 @@ const NavbarSearch = ({ search }) => {
             src={process.env.PUBLIC_URL + "/images/logo.png"}
           />
           <SearchBar val={search} />
-        </div>
-        <div className={styles.topright}>
-          <IconButton>
-            <SettingsIcon />
-          </IconButton>
-          <IconButton>
-            <AppsIcon />
-          </IconButton>
         </div>
       </div>
       <div className={styles.bottom}>
@@ -99,11 +89,7 @@ const NavbarSearch = ({ search }) => {
           >
             <LocalOfferIcon fontSize="small" color="gray" /> <p>Shopping</p>
           </div>
-          <div className={styles.options}>
-            <MoreVertIcon fontSize="small" color="gray" /> <p>More</p>
-          </div>
         </div>
-        <div>Tools</div>
       </div>
     </div>
   );

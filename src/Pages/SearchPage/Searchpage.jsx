@@ -5,7 +5,8 @@ import NavbarSearch from "../../Components/NavbarSearch/NavbarSearch";
 import ResultsNumber from "../../Components/ResultsNumber/ResultsNumber";
 import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 import { useSelector } from "react-redux";
-
+import styles from "./SearchPage.module.css";
+import { maxWidth } from "@mui/system";
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
@@ -22,17 +23,21 @@ const Searchpage = () => {
 
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        maxWidth: "100vw",
+      }}
     >
       <NavbarSearch val={search} />
       <div
+        id={styles.Results}
         style={{
           display: "flex",
           flexDirection: "column",
           flexGrow: "1",
           gap: "10px",
-          width: "50%",
-          marginLeft: "12.5%",
           paddingBottom: "25px",
           textAlign: "left",
         }}
