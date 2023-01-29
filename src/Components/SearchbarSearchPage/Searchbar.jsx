@@ -10,7 +10,7 @@ const Searchbar = (props) => {
   let dispatch = useDispatch();
   let datum = useSelector((data) => data);
   const [state, setstate] = React.useState("/");
-  console.log(datum);
+
   return (
     <div className={style.container}>
       <input

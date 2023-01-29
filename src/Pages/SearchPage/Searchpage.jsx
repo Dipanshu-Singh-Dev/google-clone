@@ -7,6 +7,8 @@ import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 import { useSelector } from "react-redux";
 import styles from "./SearchPage.module.css";
 import { maxWidth } from "@mui/system";
+import ImagesResults from "../../Components/ImagesResults/ImagesResults";
+import VideoResults from "../../Components/VideoResults/VideoResults";
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
@@ -20,6 +22,34 @@ const Searchpage = () => {
     if (results && Object.keys(results)[0] === "error") setError(true);
   }, [results]);
   if (!search) return <p>Something went wrong</p>;
+  let searchResults =
+    type === "images" ? (
+      <ImagesResults />
+    ) : type === "videos" ? (
+      <VideoResults />
+    ) : loading ? (
+      <p>Loading</p>
+    ) : Error ? (
+      <p>Something went wrong</p>
+    ) : (
+      <div>
+        <ResultsNumber
+          totalResults={results?.searchInformation.formattedTotalResults}
+          searchTime={results?.searchInformation.formattedSearchTime}
+        />
+        {results.items.map((elem) => {
+          const { link, displayLink, title, snippet } = elem;
+          return (
+            <ResultContainer
+              link={link}
+              displayLink={displayLink}
+              title={title}
+              snippet={snippet}
+            />
+          );
+        })}
+      </div>
+    );
 
   return (
     <div
@@ -42,32 +72,10 @@ const Searchpage = () => {
           textAlign: "left",
         }}
       >
-        {loading ? (
-          <p>Loading</p>
-        ) : Error ? (
-          <p>Something went wrong</p>
-        ) : (
-          <div>
-            <ResultsNumber
-              totalResults={results?.searchInformation.formattedTotalResults}
-              searchTime={results?.searchInformation.formattedSearchTime}
-            />
-            {results.items.map((elem) => {
-              const { link, displayLink, title, snippet } = elem;
-              return (
-                <ResultContainer
-                  link={link}
-                  displayLink={displayLink}
-                  title={title}
-                  snippet={snippet}
-                />
-              );
-            })}
-          </div>
-        )}
+        {searchResults}
       </div>
       <SearchFooter />
-    </div>
+    </div> //normal search results
   );
 };
 
