@@ -9,12 +9,12 @@ import styles from "./SearchPage.module.css";
 import { maxWidth } from "@mui/system";
 import ImagesResults from "../../Components/ImagesResults/ImagesResults";
 import VideoResults from "../../Components/VideoResults/VideoResults";
+import ShoppingResults from "../../Components/ShoppingResults/ShoppingResults";
+
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
-  let { search, type } = useSelector((data) => {
-    return data;
-  });
+  let { search, type } = useSelector((data) => data);
 
   let results = useGoogleSearch(search, type);
   React.useEffect(() => {
@@ -27,6 +27,8 @@ const Searchpage = () => {
       <ImagesResults />
     ) : type === "videos" ? (
       <VideoResults />
+    ) : type === "shopping" ? (
+      <ShoppingResults />
     ) : loading ? (
       <p>Loading</p>
     ) : Error ? (
