@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import variants from "../GlobalVariables/FramerVaribales";
+import variants from "../GlobalVariables/FramerVariants";
 import { motion } from "framer-motion";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 const ImagesResults = () => {
