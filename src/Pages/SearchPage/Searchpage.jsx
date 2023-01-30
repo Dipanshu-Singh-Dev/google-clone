@@ -6,7 +6,7 @@ import ResultsNumber from "../../Components/ResultsNumber/ResultsNumber";
 import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 import { useSelector } from "react-redux";
 import styles from "./SearchPage.module.css";
-import { maxWidth } from "@mui/system";
+
 import ImagesResults from "../../Components/ImagesResults/ImagesResults";
 import VideoResults from "../../Components/VideoResults/VideoResults";
 import ShoppingResults from "../../Components/ShoppingResults/ShoppingResults";
