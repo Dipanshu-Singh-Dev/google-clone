@@ -26,7 +26,7 @@ const ImagesResults = () => {
             <motion.img
               variants={variants}
               src={elem?.urls?.small}
-              style={{ padding: "1px" }}
+              style={{ padding: "1px", borderRadius: "10px" }}
               alt="chal"
               id="123456"
               whileInView="inView"

@@ -10,6 +10,7 @@ import styles from "./SearchPage.module.css";
 import ImagesResults from "../../Components/ImagesResults/ImagesResults";
 import VideoResults from "../../Components/VideoResults/VideoResults";
 import ShoppingResults from "../../Components/ShoppingResults/ShoppingResults";
+import NewsResults from "../../Components/NewsResults/NewsResults";
 
 const Searchpage = () => {
   let [loading, setLoading] = React.useState(true);
@@ -29,6 +30,8 @@ const Searchpage = () => {
       <VideoResults />
     ) : type === "shopping" ? (
       <ShoppingResults />
+    ) : type === "news" ? (
+      <NewsResults />
     ) : loading ? (
       <p>Loading</p>
     ) : Error ? (
