@@ -6,7 +6,6 @@ const variants = {
   inView: {
     scale: 1,
     opacity: 1,
-    zIndex: 1,
   },
   hover: {
     scale: 1.025,

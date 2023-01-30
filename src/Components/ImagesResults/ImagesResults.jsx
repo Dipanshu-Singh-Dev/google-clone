@@ -9,7 +9,7 @@ const ImagesResults = () => {
 
   React.useEffect(() => {
     fetch(
-      `https://api.unsplash.com/search/photos?query=${search}&client_id=G4cAdBioT6BgxlT3WYOmO0dgDuP8R1bDov5fuIEA5SA`
+      `https://api.unsplash.com/search/photos?query=${search}&client_id=G4cAdBioT6BgxlT3WYOmO0dgDuP8R1bDov5fuIEA5SA&per_page=30`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -19,8 +19,8 @@ const ImagesResults = () => {
   }, [search]);
 
   return (
-    <div className="images-container" style={{ padding: "25px 0" }}>
-      <ResponsiveMasonry columnsCountBreakPoints={{ 800: 1, 1000: 2 }}>
+    <div layout className="images-container" style={{ padding: "25px 0" }}>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 600: 1, 800: 2, 1000: 3 }}>
         <Masonry>
           {state?.results?.map((elem) => (
             <motion.img
