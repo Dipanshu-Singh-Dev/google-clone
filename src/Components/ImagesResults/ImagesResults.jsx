@@ -1,11 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-//import Masonry from "masonry-layout";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 const ImagesResults = () => {
   const search = useSelector((data) => data.search);
   const [state, setState] = React.useState();
-  const [masonry, setMasonry] = React.useState();
 
   React.useEffect(() => {
     fetch(
@@ -17,18 +15,6 @@ const ImagesResults = () => {
         setState(data);
       });
   }, [search]);
-
-  // React.useEffect(() => {
-  //   if (state) {
-  //     const imagesContainer = document.querySelector(".images-container");
-  //     const masonry = new Masonry(imagesContainer, {
-  //       // options
-  //       itemSelector: ".grid-item",
-  //       columnWidth: 200,
-  //     });
-  //     setMasonry(masonry);
-  //   }
-  // });
 
   return (
     <div className="images-container" style={{ padding: "25px 0" }}>
