@@ -6,7 +6,7 @@ const VideoContainer = ({ elem }) => {
   return (
     <div>
       <video
-        style={{ maxWidth: "100%" }}
+        style={{ maxWidth: "100%", borderRadius: "5px" }}
         ref={videoRef}
         height="auto"
         onClick={() => {

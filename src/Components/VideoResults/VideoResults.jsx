@@ -902,6 +902,7 @@ const VideoResults = () => {
       {results?.hits.map((elem) => {
         return (
           <motion.div
+            style={{ borderRadius: "15px" }}
             variants={variants}
             initial="normal"
             whileHover="hover"
