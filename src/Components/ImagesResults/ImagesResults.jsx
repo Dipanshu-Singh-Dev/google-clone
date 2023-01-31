@@ -1,5 +1,5 @@
-import React from "react";
 import { useSelector } from "react-redux";
+import React from "react";
 import variants from "../GlobalVariables/FramerVariants";
 import { motion } from "framer-motion";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
@@ -17,7 +17,6 @@ const ImagesResults = () => {
         setState(data);
       });
   }, [search]);
-
   return (
     <div layout className="images-container" style={{ padding: "25px 0" }}>
       <ResponsiveMasonry columnsCountBreakPoints={{ 600: 1, 800: 2, 1000: 3 }}>
@@ -33,7 +32,7 @@ const ImagesResults = () => {
               whileHover="hover"
               initial="normal"
               whileTap="click"
-              transition={{ duration: 0.25 }}
+              transition={{ duration: 0.2 }}
               className="grid-item"
             />
           ))}

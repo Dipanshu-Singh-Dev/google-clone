@@ -12,7 +12,7 @@ const variants = {
     zIndex: 1,
   },
   click: {
-    scale: 1.01,
+    scale: 1,
     zIndex: 1,
   },
 };
