@@ -16,6 +16,7 @@ const VideoResults = () => {
         setLoading(false);
         setError(false);
         setResults(data);
+        console.log(data);
       })
       .catch((err) => {
         setLoading(false);
