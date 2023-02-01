@@ -32,7 +32,11 @@ const ImagesResults = () => {
         onExitComplete={() => null}
       >
         {modalOpen.opened && (
-          <ImageModal handleClose={handleClose} target={modalOpen.target} />
+          <ImageModal
+            handleClose={handleClose}
+            target={modalOpen.target}
+            type="image"
+          />
         )}
         {/* correcting commit */}
       </AnimatePresence>

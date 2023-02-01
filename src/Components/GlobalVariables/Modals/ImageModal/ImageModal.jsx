@@ -24,6 +24,7 @@ const ImageModal = ({ handleClose, target }) => {
             textAlign: "center",
             display: "flex",
             gap: "10px",
+            width: "80vw",
             flexDirection: "column",
             justifyContent: "space-between",
             color: "gray",
@@ -34,7 +35,12 @@ const ImageModal = ({ handleClose, target }) => {
           variants={variants}
           className={styles.container}
         >
-          <img src={target.urls.full} alt="preview" height="80%" />
+          <img
+            style={{ width: "inherit" }}
+            src={target.urls.full}
+            alt="preview"
+            overflow="contain"
+          />
 
           <div
             style={{

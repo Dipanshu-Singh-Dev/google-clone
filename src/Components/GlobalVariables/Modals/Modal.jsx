@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-const ImageModal = ({ handleClose, target }) => {
-  console.log(handleClose, target);
+import ImageModal from "./ImageModal/ImageModal";
+const Modal = ({ handleClose, target, type }) => {
+  console.log(handleClose, target, type);
+  let currentModal;
+  if (type === "image")
+    currentModal = <ImageModal handleClose={handleClose} target={target} />;
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
-        <>
-          <ImageModal handleClose={handleClose} target={target} />
-        </>,
+        <>{currentModal}</>,
         document.querySelector("body")
       )}
     </React.Fragment>
   );
 };
 
-export default ImageModal;
+export default Modal;
