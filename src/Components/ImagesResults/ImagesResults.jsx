@@ -34,6 +34,7 @@ const ImagesResults = () => {
         {modalOpen.opened && (
           <ImageModal handleClose={handleClose} target={modalOpen.target} />
         )}
+        {/* correcting commit */}
       </AnimatePresence>
       <ResponsiveMasonry columnsCountBreakPoints={{ 600: 1, 800: 2, 1000: 3 }}>
         <Masonry>
