@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { motion } from "framer-motion";
 import ImageModal from "./ImageModal/ImageModal";
+import ProductModal from "./ProductModal/ProductModal";
 import styles from "./Modal.module.css";
 import modalVariants from "./ModalVariants";
+
 const Modal = ({ handleClose, target, type }) => {
   console.log(handleClose, target, type);
   let currentModal;
@@ -13,6 +15,8 @@ const Modal = ({ handleClose, target, type }) => {
   });
   if (type === "image")
     currentModal = <ImageModal handleClose={handleClose} target={target} />;
+  else if (type === "product")
+    currentModal = <ProductModal handleClose={handleClose} target={target} />;
   return (
     <React.Fragment>
       {ReactDOM.createPortal(

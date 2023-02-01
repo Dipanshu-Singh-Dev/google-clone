@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProductContainer.module.css";
 import variants from "../GlobalVariables/FramerVariants";
 import { motion } from "framer-motion";
-const ProductContainer = ({ elem }) => {
+const ProductContainer = ({ elem, modalOpener }) => {
   console.log(elem);
   return (
     <motion.div
@@ -11,6 +11,7 @@ const ProductContainer = ({ elem }) => {
       whileTap="click"
       whileHover="hover"
       variants={variants}
+      onClick={() => modalOpener(elem)}
       className={styles.container}
     >
       <img
