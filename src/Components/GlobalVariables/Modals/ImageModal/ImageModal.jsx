@@ -38,7 +38,7 @@ const ImageModal = ({ handleClose, target }) => {
         >
           <img
             style={{
-              width: "100%",
+              width: "auto",
               borderRadius: "10px 10px 0 0",
             }}
             className={styles.image}
