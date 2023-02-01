@@ -19,7 +19,6 @@ const variants = {
   hover: {
     scale: 1.025,
     zIndex: 1,
-    border: "1px solid black",
     transition: {
       duration: 0.2,
     },

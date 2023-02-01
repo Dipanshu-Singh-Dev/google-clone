@@ -1,18 +1,17 @@
 import React from "react";
 
 const VideoContainer = ({ elem }) => {
-  const videoRef = React.useRef();
-  console.log(elem);
   return (
     <div>
       <video
-        style={{ maxWidth: "100%", borderRadius: "5px" }}
-        ref={videoRef}
-        height="auto"
-        onClick={() => {
-          if (videoRef.current.paused) videoRef.current.play();
-          else videoRef.current.pause();
+        style={{
+          maxWidth: "100%",
+          height: "fit-content",
+          borderRadius: "15px",
+          border: "0",
         }}
+        height="auto"
+        onClick={() => {}}
       >
         <source src={elem.videos.tiny.url} />
       </video>
