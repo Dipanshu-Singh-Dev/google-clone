@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import variants from "../ModalVariants";
 import ButtonVariants from "../../Variants/ButtonFramerVariants";
 import styles from "../Modal.module.css";
+
 const ImageModal = ({ handleClose, target }) => {
   React.useEffect(() => {
     document.body.style.overflowY = "hidden";
@@ -22,8 +23,9 @@ const ImageModal = ({ handleClose, target }) => {
           onClick={(e) => e.stopPropagation()}
           style={{
             textAlign: "center",
+            paddingBottom: "20px",
             display: "flex",
-            gap: "10px",
+            gap: "5px",
             flexDirection: "column",
             justifyContent: "space-between",
             color: "gray",
@@ -37,12 +39,11 @@ const ImageModal = ({ handleClose, target }) => {
           <img
             style={{
               width: "100%",
-              maxHeight: "80%",
               borderRadius: "10px 10px 0 0",
             }}
+            className={styles.image}
             src={target.urls.full}
             alt="preview"
-            overflow="contain"
           />
 
           <div
@@ -51,7 +52,7 @@ const ImageModal = ({ handleClose, target }) => {
               flexDirection: "row",
               justifyContent: "space-around",
               alignItems: "center",
-              gap: "3%",
+              gap: "1%",
             }}
           >
             <p>
