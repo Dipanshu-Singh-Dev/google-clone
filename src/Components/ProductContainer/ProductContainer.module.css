@@ -1,1 +1,15 @@
-.container{}
+.container{
+    text-align: center;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.preview{
+    top: 0;
+        width: 100%;
+        object-fit: contain;
+}

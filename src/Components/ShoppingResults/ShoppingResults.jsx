@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ProductContainer from "../ProductContainer/ProductContainer";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ShoppingResults = () => {
   const search = useSelector((data) => data.search);
@@ -28,9 +29,13 @@ const ShoppingResults = () => {
       ) : Error ? (
         <p>Something went wrong</p>
       ) : (
-        data?.products?.map((elem) => {
-          return <ProductContainer />;
-        })
+        <ResponsiveMasonry>
+          <Masonry>
+            {data?.products?.map((elem) => {
+              return <ProductContainer elem={elem} />;
+            })}
+          </Masonry>
+        </ResponsiveMasonry>
       )}
     </>
   );

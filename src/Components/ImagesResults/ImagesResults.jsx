@@ -44,7 +44,7 @@ const ImagesResults = () => {
               }
               variants={variants}
               src={elem?.urls?.small}
-              style={{ padding: "1px", borderRadius: "5px" }}
+              style={{ margin: "2px", borderRadius: "5px", cursor: "pointer" }}
               alt="chal"
               id="123456"
               whileInView="inView"
