@@ -39,11 +39,7 @@ const ShoppingResults = () => {
   };
   return (
     <div style={{ margin: "25px 0" }}>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
+      <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
         {modalState.modalOpen && (
           <ProductModal
             handleClose={handleClose}
@@ -57,7 +53,9 @@ const ShoppingResults = () => {
       ) : Error ? (
         <p>Something went wrong</p>
       ) : (
-        <ResponsiveMasonry>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 600: 1, 800: 2, 1000: 3 }}
+        >
           <Masonry>
             {data?.products?.map((elem) => {
               return <ProductContainer elem={elem} modalOpener={modalOpener} />;
