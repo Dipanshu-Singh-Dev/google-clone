@@ -4,11 +4,12 @@ import variants from "../ModalVariants";
 import ButtonVariants from "../../Variants/ButtonFramerVariants";
 import styles from "../Modal.module.css";
 
-const ImageModal = ({ handleClose, target }) => {
+const ImageModal = ({ handleClose, target, type }) => {
   React.useEffect(() => {
     document.body.style.overflowY = "hidden";
     return () => (document.body.style.overflowY = "scroll");
   });
+  if (type !== "image") return null;
   return (
     <div>
       <motion.div

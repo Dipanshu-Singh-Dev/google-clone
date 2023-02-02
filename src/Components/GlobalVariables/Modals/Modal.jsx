@@ -5,6 +5,7 @@ import ImageModal from "./ImageModal/ImageModal";
 import ProductModal from "./ProductModal/ProductModal";
 import styles from "./Modal.module.css";
 import modalVariants from "./ModalVariants";
+import VideoModal from "./VideoModal/VideoModal";
 
 const Modal = ({ handleClose, target, type }) => {
   console.log(handleClose, target, type);
@@ -13,10 +14,18 @@ const Modal = ({ handleClose, target, type }) => {
     document.body.style.overflowY = "hidden";
     return () => (document.body.style.overflowY = "scroll");
   });
-  if (type === "image")
-    currentModal = <ImageModal handleClose={handleClose} target={target} />;
-  else if (type === "product")
-    currentModal = <ProductModal handleClose={handleClose} target={target} />;
+  if (type === "image") {
+    currentModal = (
+      <ImageModal handleClose={handleClose} target={target} type={type} />
+    );
+  } else if (type === "product")
+    currentModal = (
+      <ProductModal handleClose={handleClose} target={target} type={type} />
+    );
+  else if (type === "video")
+    currentModal = (
+      <VideoModal handleClose={handleClose} target={target} type={type} />
+    );
   return (
     <React.Fragment>
       {ReactDOM.createPortal(

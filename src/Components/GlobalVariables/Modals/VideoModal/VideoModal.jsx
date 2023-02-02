@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import variants from "../ModalVariants";
 import ButtonVariants from "../../Variants/ButtonFramerVariants";
-import styles from "../Modal.module.css";
+import styles from "./VideoModal.module.css";
 
-const ImageModal = ({ handleClose, target }) => {
+const VideoModal = ({ handleClose, target }) => {
   React.useEffect(() => {
     document.body.style.overflowY = "hidden";
     return () => (document.body.style.overflowY = "scroll");
@@ -37,15 +37,9 @@ const ImageModal = ({ handleClose, target }) => {
           variants={variants}
           className={styles.container}
         >
-          <img
-            style={{
-              width: "auto",
-              borderRadius: "10px 10px 0 0",
-            }}
-            className={styles.image}
-            src={target.urls.full}
-            alt="preview"
-          />
+          <video className={styles.modalVideo} height="auto">
+            <source src={target.videos.large.url} />
+          </video>
 
           <div
             style={{
@@ -56,14 +50,7 @@ const ImageModal = ({ handleClose, target }) => {
               gap: "1%",
             }}
           >
-            <p>
-              <span style={{ color: "black" }}>by </span> {target.user.name}
-            </p>
-            <p>
-              <span style={{ color: "black" }}>Published on </span>
-              {target.user.updated_at.substring(0, 10)}
-            </p>
-            <a href={target.urls.full}>
+            <a>
               <motion.button
                 style={{
                   padding: "5px 10px",
@@ -89,4 +76,4 @@ const ImageModal = ({ handleClose, target }) => {
   );
 };
 
-export default ImageModal;
+export default VideoModal;

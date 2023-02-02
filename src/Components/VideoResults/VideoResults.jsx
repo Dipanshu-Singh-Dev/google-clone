@@ -68,6 +68,9 @@ const VideoResults = () => {
   const handleClose = () => {
     setModalOpen(false);
   };
+  const modalOpener = (elem) => {
+    setModalOpen({ ...modalOpen, opened: true, target: elem });
+  };
   return loading ? (
     <p>Loading</p>
   ) : Error ? (
@@ -83,7 +86,7 @@ const VideoResults = () => {
           <Modal
             handleClose={handleClose}
             target={modalOpen.target}
-            type="image"
+            type="video"
           />
         )}
       </AnimatePresence>
@@ -97,12 +100,7 @@ const VideoResults = () => {
             whileTap="click"
             whileInView="inView"
           >
-            <VideoContainer
-              elem={elem}
-              onClick={() =>
-                setModalOpen({ ...modalOpen, opened: true, target: elem })
-              }
-            />
+            <VideoContainer elem={elem} modalOpener={modalOpener} />
           </motion.div>
         );
       })}
