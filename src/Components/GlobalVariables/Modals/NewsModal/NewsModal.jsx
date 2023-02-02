@@ -10,7 +10,7 @@ const NewsModal = ({ handleClose, target, type }) => {
     document.body.style.overflowY = "hidden";
     return () => (document.body.style.overflowY = "scroll");
   });
-  if (type !== "product") return null;
+  if (type !== "news") return null;
   return (
     <div>
       <motion.div
@@ -20,17 +20,25 @@ const NewsModal = ({ handleClose, target, type }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        style={{ overflowY: "scroll" }}
+        style={{ overflowY: "hidden" }}
       >
         <motion.div
-          onClick={(e) => e.stopPropagation()}
           initial="hidden"
           animate="visible"
           exit="exit"
           variants={variants}
           className={styles.container}
         >
-          THis is a modal
+          <img className={styles.image} src={target.image_url} alt="preview" />
+          <div className={styles.newsContainer}>
+            <p
+              className={styles.title}
+              style={{ color: "black", fontSize: "large" }}
+            >
+              {target.title}
+            </p>
+            <p className={styles.content}>{target.content}</p>
+          </div>
         </motion.div>
       </motion.div>
     </div>

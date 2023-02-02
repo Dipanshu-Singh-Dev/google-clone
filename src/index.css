@@ -5,7 +5,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 }
+body::-webkit-scrollbar {
+  width: 15px;
+  background-color: ghostwhite;
+  border: 1px solid black;
+  border-radius: 100vw;
+}
+body::-webkit-scrollbar-track {
+  background-color: none;
+  border: 1px solid gray;
+  border-radius: 100vw;
+}
 
+body::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 100vw;
+  margin: 5px;
+  padding: 5px;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: ghostwhite;
+  border: 1px solid black;
+  border-radius: 100vw;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 100vw;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 100vw;
+  
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

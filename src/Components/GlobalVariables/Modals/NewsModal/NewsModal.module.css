@@ -10,11 +10,11 @@
 
 .container {
     z-index: 2;
-    width: 90vw;
+    width: 99vw;
     margin: auto;
     display: flex;
     margin-top: 1%;
-    max-height: 90vh;
+    height: 95vh;
     background-color: ghostwhite;
     border-radius: 10px;
     text-align: center;
@@ -26,33 +26,37 @@
 
 .image {
     max-height: 100%;
+    max-width: 50%;
     border-radius: 10px 0 0 10px;
 }
 
-.deets {
-    padding: 25px;
+.newsContainer{
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-
-.buyDeets {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-
+.content{
+        overflow-y: scroll
+    }
 @media screen and (max-width:800px) {
     .container {
         display: flex;
-        max-height: fit-content;
-        max-width: fit-content;
+        max-height: 95vh;
+        max-width: 95vw;
         flex-direction: column;
+        overflow-y: scroll;
+        padding: 10px;
     }
-
+.content {
+    overflow-y: hidden
+}
     .image {
+        position:relative;
+        left: 0;
+        top: 0;
+        min-height: 60%;
+        max-width: 100%;
         border-radius: 10px 10px 0 0;
     }
 }
