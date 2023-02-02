@@ -30,41 +30,7 @@ const NewsModal = ({ handleClose, target, type }) => {
           variants={variants}
           className={styles.container}
         >
-          <img src={target.images[0]} className={styles.image} alt="preview" />
-
-          <div className={styles.deets}>
-            <h2 style={{ color: "black" }}>{target.title}</h2>
-            <p>{target.description}</p>
-            <div className={styles.buyDeets}>
-              <p className={styles.price}>
-                <span style={{ textDecoration: "line-through" }}>
-                  {target.price + 100}
-                </span>
-
-                {"    " + target.price}
-              </p>
-              <a>
-                <motion.button
-                  style={{
-                    cursor: "pointer",
-                    padding: "5px 25px",
-                    borderRadius: "5px",
-                    margin: "25px",
-                    border: "1px solid black",
-                    backgroundImage:
-                      "linear-gradient(to right,white, ghostwhite)",
-                  }}
-                  whileInView="inView"
-                  whileHover="hover"
-                  initial="hidden"
-                  whileTap="click"
-                  variants={ButtonVariants}
-                >
-                  Buy
-                </motion.button>
-              </a>
-            </div>
-          </div>
+          THis is a modal
         </motion.div>
       </motion.div>
     </div>

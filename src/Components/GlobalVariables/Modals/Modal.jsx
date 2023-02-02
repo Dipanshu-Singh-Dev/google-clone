@@ -6,7 +6,7 @@ import ProductModal from "./ProductModal/ProductModal";
 import styles from "./Modal.module.css";
 import modalVariants from "./ModalVariants";
 import VideoModal from "./VideoModal/VideoModal";
-
+import NewsModal from "./NewsModal/NewsModal";
 const Modal = ({ handleClose, target, type }) => {
   console.log(handleClose, target, type);
   let currentModal;
@@ -25,6 +25,10 @@ const Modal = ({ handleClose, target, type }) => {
   else if (type === "video")
     currentModal = (
       <VideoModal handleClose={handleClose} target={target} type={type} />
+    );
+  else if (type === "news")
+    currentModal = (
+      <NewsModal handleClose={handleClose} target={target} type={type} />
     );
   return (
     <React.Fragment>
