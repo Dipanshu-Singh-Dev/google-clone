@@ -1,6 +1,7 @@
 import React from "react";
 
 const VideoContainer = ({ elem, modalOpener }) => {
+  console.log(elem);
   return (
     <div>
       <video

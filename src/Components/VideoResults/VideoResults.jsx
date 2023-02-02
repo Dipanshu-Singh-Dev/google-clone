@@ -57,6 +57,7 @@ const VideoResults = () => {
       .then((data) => {
         setLoading(false);
         setError(false);
+
         setResults(data);
         console.log(data);
       })
