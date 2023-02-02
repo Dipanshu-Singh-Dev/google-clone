@@ -1,7 +1,7 @@
 .container{
     text-align: center;
-        background-image: linear-gradient(rgba(50, 50, 50, 0.1),
-                    rgba(50, 50, 50, .15));
+        background-image: linear-gradient(rgba(50, 50, 50, 0.025),
+                    rgba(50, 50, 50, .05));
     cursor: pointer;
     margin: 10px;
     border-radius: 5px;

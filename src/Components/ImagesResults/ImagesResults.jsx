@@ -45,7 +45,11 @@ const ImagesResults = () => {
           {state?.results?.map((elem) => (
             <motion.img
               onClick={() =>
-                setModalOpen({ ...modalOpen, opened: true, target: elem })
+                setTimeout(
+                  () =>
+                    setModalOpen({ ...modalOpen, opened: true, target: elem }),
+                  200
+                )
               }
               variants={variants}
               src={elem?.urls?.small}

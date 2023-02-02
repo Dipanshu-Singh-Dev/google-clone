@@ -11,7 +11,7 @@ const ProductContainer = ({ elem, modalOpener }) => {
       whileTap="click"
       whileHover="hover"
       variants={variants}
-      onClick={() => modalOpener(elem)}
+      onClick={() => setTimeout(() => modalOpener(elem), 200)}
       className={styles.container}
     >
       <img

@@ -13,9 +13,7 @@ const VideoContainer = ({ elem, modalOpener }) => {
           borderRadius: "15px",
         }}
         height="auto"
-        onClick={() => {
-          modalOpener(elem);
-        }}
+        onClick={() => setTimeout(() => modalOpener(elem), 200)}
       >
         <source src={elem.videos.tiny.url} />
       </video>

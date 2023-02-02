@@ -4,8 +4,8 @@ import variants from "../ModalVariants";
 import ButtonVariants from "../../Variants/ButtonFramerVariants";
 import styles from "./ProductModal.module.css";
 
-const ImageModal = ({ handleClose, target, type }) => {
-  console.log(handleClose, target);
+const ProductModal = ({ handleClose, target, type }) => {
+  console.log(handleClose, target.images.length);
   React.useEffect(() => {
     document.body.style.overflowY = "hidden";
     return () => (document.body.style.overflowY = "scroll");
@@ -71,4 +71,4 @@ const ImageModal = ({ handleClose, target, type }) => {
   );
 };
 
-export default ImageModal;
+export default ProductModal;

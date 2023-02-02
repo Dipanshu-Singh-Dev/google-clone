@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import variants from "../ModalVariants";
 import ButtonVariants from "../../Variants/ButtonFramerVariants";
-import styles from "./ProductModal.module.css";
+import styles from "./NewsModal.module.css";
 
-const ImageModal = ({ handleClose, target, type }) => {
+const NewsModal = ({ handleClose, target, type }) => {
   console.log(handleClose, target);
   React.useEffect(() => {
     document.body.style.overflowY = "hidden";
@@ -71,4 +71,4 @@ const ImageModal = ({ handleClose, target, type }) => {
   );
 };
 
-export default ImageModal;
+export default NewsModal;
