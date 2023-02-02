@@ -225,7 +225,7 @@ const NewsResults = () => {
       ) : Error ? (
         <p>Something went wrong</p>
       ) : (
-        <>
+        <div style={{ padding: "25px 0" }}>
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 600: 1, 800: 2, 1000: 3 }}
           >
@@ -235,7 +235,7 @@ const NewsResults = () => {
               ))}
             </Masonry>
           </ResponsiveMasonry>
-        </>
+        </div>
       )}
     </div>
   );

@@ -9,6 +9,7 @@ const VideoContainer = ({ elem, modalOpener }) => {
           maxWidth: "100%",
           height: "fit-content",
           border: "0",
+          cursor: "pointer",
           borderRadius: "15px",
         }}
         height="auto"
