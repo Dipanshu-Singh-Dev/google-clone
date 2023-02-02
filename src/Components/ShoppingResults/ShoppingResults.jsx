@@ -38,7 +38,7 @@ const ShoppingResults = () => {
     });
   };
   return (
-    <>
+    <div style={{ margin: "25px 0" }}>
       <AnimatePresence
         initial={false}
         exitBeforeEnter={true}
@@ -65,7 +65,7 @@ const ShoppingResults = () => {
           </Masonry>
         </ResponsiveMasonry>
       )}
-    </>
+    </div>
   );
 };
 
