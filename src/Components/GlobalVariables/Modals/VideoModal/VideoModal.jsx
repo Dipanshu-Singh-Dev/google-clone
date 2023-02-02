@@ -24,7 +24,6 @@ const VideoModal = ({ handleClose, target }) => {
           onClick={(e) => e.stopPropagation()}
           style={{
             textAlign: "center",
-            paddingBottom: "20px",
             display: "flex",
             gap: "5px",
             flexDirection: "column",
@@ -37,39 +36,15 @@ const VideoModal = ({ handleClose, target }) => {
           variants={variants}
           className={styles.container}
         >
-          <video className={styles.modalVideo} height="auto">
+          <video
+            className={styles.modalVideo}
+            height="auto"
+            loop
+            autoplay
+            controls
+          >
             <source src={target.videos.large.url} />
           </video>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              alignItems: "center",
-              gap: "1%",
-            }}
-          >
-            <a>
-              <motion.button
-                style={{
-                  padding: "5px 10px",
-                  borderRadius: "5px",
-                  margin: "25px",
-                  border: "1px solid black",
-                  backgroundImage:
-                    "linear-gradient(to right,white, ghostwhite)",
-                }}
-                whileInView="inView"
-                whileHover="hover"
-                initial="hidden"
-                whileTap="click"
-                variants={ButtonVariants}
-              >
-                Download
-              </motion.button>
-            </a>
-          </div>
         </motion.div>
       </motion.div>
     </div>
