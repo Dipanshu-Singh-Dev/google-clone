@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import variants from "../ModalVariants";
-import ButtonVariants from "../../Variants/ButtonFramerVariants";
 import styles from "./NewsModal.module.css";
 
 const NewsModal = ({ handleClose, target, type }) => {
