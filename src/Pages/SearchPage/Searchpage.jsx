@@ -6,14 +6,14 @@ import ResultsNumber from "../../Components/ResultsNumber/ResultsNumber";
 import ResultContainer from "../../Components/ResultContainer/ResultContainer";
 import { useSelector } from "react-redux";
 import styles from "./SearchPage.module.css";
-
+import { MagnifyingGlass, Audio } from "react-loader-spinner";
 import ImagesResults from "../../Components/ImagesResults/ImagesResults";
 import VideoResults from "../../Components/VideoResults/VideoResults";
 import ShoppingResults from "../../Components/ShoppingResults/ShoppingResults";
 import NewsResults from "../../Components/NewsResults/NewsResults";
 
 const Searchpage = () => {
-  let [loading, setLoading] = React.useState(false);
+  let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
   let { search, type } = useSelector((data) => data);
   const [results, setResults] = React.useState();
@@ -21,7 +21,7 @@ const Searchpage = () => {
   React.useEffect(() => {
     if (type === "text") {
       fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${"AIzaSyAU4-RNW8sQ-Ky4MuRKr1Rr508QOGSP664"}&cx=${"7731e76d02986670d"}&q=${search}`
+        `https://www.googleapis.com/customsearch/v1?key=AIzaSyAU4-RNW8sQ-Ky4MuRKr1Rr508QOGSP664&cx=7731e76d02986670d&q=${search}`
       )
         .then((res) => {
           return res.json();
@@ -35,9 +35,11 @@ const Searchpage = () => {
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
   }, [search]);
+  React.useEffect(() => {
+    setLoading(true);
+  }, [type]);
   if (!search) return <p>Something went wrong</p>;
   console.log(results);
-
   let searchResults =
     type === "images" ? (
       <ImagesResults />
@@ -48,7 +50,24 @@ const Searchpage = () => {
     ) : type === "news" ? (
       <NewsResults />
     ) : loading ? (
-      <p>Loading</p>
+      <div>
+        <MagnifyingGlass
+          visible={true}
+          height="80"
+          width="80"
+          className="loadingComponent"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+          }}
+          wrapperClass="MagnifyingGlass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+        />
+      </div>
     ) : Error ? (
       <p>Something went wrong</p>
     ) : (

@@ -1,12 +1,13 @@
 import React from "react";
 import NewsContainer from "../NewsContainer/NewsContainer";
+import { MagnifyingGlass } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../GlobalVariables/Modals/Modal";
 const key = "pub_16233214b5315d1d86aa40b37c2c810e00e5a";
 const NewsResults = () => {
-  const search = useSelector((data) => data.search);
+  const { type, search } = useSelector((data) => data);
   const [results, setResults] = React.useState();
   let [loading, setLoading] = React.useState(false);
   let [Error, setError] = React.useState(false);
@@ -30,6 +31,9 @@ const NewsResults = () => {
         setError(true);
       });
   }, []);
+  React.useEffect(() => {
+    setLoading(true);
+  }, [type]);
   const modalOpener = (elem) => {
     setmodalState({
       ...modalState,
@@ -52,7 +56,24 @@ const NewsResults = () => {
         )}
       </AnimatePresence>
       {loading ? (
-        <p>Loading</p>
+        <div>
+          <MagnifyingGlass
+            visible={true}
+            height="80"
+            width="80"
+            className="loadingComponent"
+            ariaLabel="MagnifyingGlass-loading"
+            wrapperStyle={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+            }}
+            wrapperClass="MagnifyingGlass-wrapper"
+            glassColor="#c0efff"
+            color="#e15b64"
+          />
+        </div>
       ) : Error ? (
         <p>Something went wrong</p>
       ) : (

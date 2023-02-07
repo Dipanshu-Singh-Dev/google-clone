@@ -4,6 +4,7 @@ import VideoContainer from "../VideoContainer/VideoContainer";
 import { motion } from "framer-motion";
 import styles from "./VideoResults.module.css";
 import { AnimatePresence } from "framer-motion";
+import { MagnifyingGlass } from "react-loader-spinner";
 import Modal from "../GlobalVariables/Modals/Modal";
 const key = "AIzaSyDkNAovVDt9mhVvpkPLuVOZBkoyySYKP2c";
 const variants = {
@@ -40,8 +41,8 @@ const variants = {
   },
 };
 const VideoResults = () => {
-  const search = useSelector((data) => data.search);
-  let [loading, setLoading] = React.useState(false);
+  const { search, type } = useSelector((data) => data);
+  let [loading, setLoading] = React.useState(true);
   let [Error, setError] = React.useState(false);
   const [results, setResults] = React.useState();
   const [modalOpen, setModalOpen] = React.useState({
@@ -66,6 +67,9 @@ const VideoResults = () => {
         setError(true);
       });
   }, [search]);
+  React.useEffect(() => {
+    setLoading(true);
+  }, [search, type]);
   const handleClose = () => {
     setModalOpen(false);
   };
@@ -73,7 +77,24 @@ const VideoResults = () => {
     setModalOpen({ ...modalOpen, opened: true, target: elem });
   };
   return loading ? (
-    <p>Loading</p>
+    <div>
+      <MagnifyingGlass
+        visible={true}
+        height="80"
+        width="80"
+        className="loadingComponent"
+        ariaLabel="MagnifyingGlass-loading"
+        wrapperStyle={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+        }}
+        wrapperClass="MagnifyingGlass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
+    </div>
   ) : Error ? (
     <p>Something went wrong</p>
   ) : (

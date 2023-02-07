@@ -4,6 +4,7 @@ import ProductContainer from "../ProductContainer/ProductContainer";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { AnimatePresence } from "framer-motion";
 import ProductModal from "../GlobalVariables/Modals/ProductModal/ProductModal";
+import { MagnifyingGlass } from "react-loader-spinner";
 const ShoppingResults = () => {
   console.log("shoppingresults called");
   const search = useSelector((data) => data.search);
@@ -49,7 +50,24 @@ const ShoppingResults = () => {
         )}
       </AnimatePresence>
       {loading ? (
-        <p>Loading</p>
+        <div>
+          <MagnifyingGlass
+            visible={true}
+            height="80"
+            width="80"
+            className="loadingComponent"
+            ariaLabel="MagnifyingGlass-loading"
+            wrapperStyle={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+            }}
+            wrapperClass="MagnifyingGlass-wrapper"
+            glassColor="#c0efff"
+            color="#e15b64"
+          />
+        </div>
       ) : Error ? (
         <p>Something went wrong</p>
       ) : (
