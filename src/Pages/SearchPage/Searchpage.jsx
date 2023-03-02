@@ -24,17 +24,20 @@ const Searchpage = () => {
         `https://www.googleapis.com/customsearch/v1?key=AIzaSyAU4-RNW8sQ-Ky4MuRKr1Rr508QOGSP664&cx=7731e76d02986670d&q=${search}`
       )
         .then((res) => {
+          setLoading(false);
           return res.json();
         })
         .then((data) => setResults(data))
         .catch((e) => {
+          setLoading(false);
+          setError(true);
           console.log(e);
           setResults(null);
         });
     }
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
-  }, [search]);
+  }, [search, results, type]);
   React.useEffect(() => {
     setLoading(true);
   }, [type]);
