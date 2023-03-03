@@ -37,7 +37,7 @@ const Searchpage = () => {
     }
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
-  }, [search, results, type]);
+  }, [search, type]);
   React.useEffect(() => {
     setLoading(true);
   }, [type]);
