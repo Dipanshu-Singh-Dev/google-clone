@@ -5,6 +5,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { AnimatePresence } from "framer-motion";
 import ProductModal from "../GlobalVariables/Modals/ProductModal/ProductModal";
 import { MagnifyingGlass } from "react-loader-spinner";
+import styles from "./ShoppingResults.module.css";
 const ShoppingResults = () => {
   console.log("shoppingresults called");
   const search = useSelector((data) => data.search);

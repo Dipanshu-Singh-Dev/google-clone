@@ -37,12 +37,12 @@ const Searchpage = () => {
     }
     if (results) setLoading(false);
     if (results && Object.keys(results)[0] === "error") setError(true);
-  }, [search, type]);
+  }, [search]);
   React.useEffect(() => {
     setLoading(true);
   }, [type]);
   if (!search) return <p>Something went wrong</p>;
-  console.log(results);
+
   let searchResults =
     type === "images" ? (
       <ImagesResults />
